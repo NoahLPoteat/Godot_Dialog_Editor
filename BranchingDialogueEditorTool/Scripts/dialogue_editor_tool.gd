@@ -1,7 +1,7 @@
 extends Control
 class_name DialogEditorRoot
 
-@export var json_folder_path: String = ""
+@export var json_folder_path: String = "D:/GitHub/Godot/Godot-PROTOTYPES/dialogue-system-prototype/Scenes/BranchingDialogueEditorTool/JsonFolder/"
 @onready var json_file_array: Array
 
 #the 4 pages used in the tool
@@ -23,7 +23,6 @@ var choices_arr: Array = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	await get_tree().physics_frame
-	
 	var exe_path = OS.get_executable_path().get_base_dir() + "/"
 	var dir = DirAccess.open(exe_path)
 	var json_dir = "json_storage"
@@ -35,12 +34,9 @@ func _ready():
 	
 	if exists:
 		json_folder_path = exe_path + json_dir + "/"
-		dir.close()
 	else:
 		dir.make_dir_recursive(exe_path + json_dir)
 		json_folder_path = exe_path + json_dir + "/"
-	
-	
 	
 	open_json_page()
 

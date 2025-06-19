@@ -26,6 +26,7 @@ grow_vertical = 2
 color = Color(0.187289, 0.109269, 0.147616, 1)
 
 [node name="JsonPage" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -106,7 +107,6 @@ text = "Select Folder
 "
 
 [node name="EntityPage" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -170,7 +170,6 @@ grow_vertical = 2
 text = "Confirm?"
 
 [node name="TopicsOverview" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -196,9 +195,9 @@ text = "Create Topic"
 
 [node name="TopicsOverviewLabel" type="RichTextLabel" parent="TopicsOverview"]
 layout_mode = 0
-offset_top = 54.0
+offset_top = 50.0
 offset_right = 1280.0
-offset_bottom = 720.0
+offset_bottom = 716.0
 bbcode_enabled = true
 
 [node name="NameInputControl" type="Control" parent="TopicsOverview"]
@@ -266,8 +265,8 @@ text = "Confirm?"
 [node name="IndividualTopicPage" type="Control" parent="."]
 visible = false
 anchors_preset = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+offset_right = 1151.0
+offset_bottom = 649.0
 script = ExtResource("5_oou7t")
 
 [node name="Back" type="Button" parent="IndividualTopicPage"]
@@ -278,39 +277,41 @@ text = "Back"
 
 [node name="SaveButton" type="Button" parent="IndividualTopicPage"]
 layout_mode = 0
-offset_left = 1171.0
-offset_top = 5.0
-offset_right = 1275.0
-offset_bottom = 68.0
+offset_left = 1042.0
+offset_top = 4.0
+offset_right = 1146.0
+offset_bottom = 67.0
 theme_override_font_sizes/font_size = 40
 text = "SAVE"
 
 [node name="TabContainer" type="TabContainer" parent="IndividualTopicPage"]
 layout_mode = 0
 offset_top = 88.0
-offset_right = 1280.0
-offset_bottom = 720.0
-current_tab = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+current_tab = 1
 
 [node name="TextMenu" type="Control" parent="IndividualTopicPage/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="AddTextBoxButton" type="Button" parent="IndividualTopicPage/TabContainer/TextMenu"]
 layout_mode = 0
-offset_left = 1151.0
-offset_top = 2.0
-offset_right = 1280.0
-offset_bottom = 47.0
+offset_left = 1022.0
+offset_top = 3.0
+offset_right = 1151.0
+offset_bottom = 48.0
 text = "Add Text Piece
 "
 
 [node name="TextBoxScrolling" type="ScrollContainer" parent="IndividualTopicPage/TabContainer/TextMenu"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_right = 0.976
 anchor_bottom = 1.0
 offset_top = 49.0
+offset_right = 25.6479
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -319,16 +320,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="ChoicesMenu" type="Control" parent="IndividualTopicPage/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="AddChoiceButton" type="Button" parent="IndividualTopicPage/TabContainer/ChoicesMenu"]
 layout_mode = 0
-offset_left = 1144.0
-offset_top = 2.0
-offset_right = 1278.0
-offset_bottom = 47.0
+offset_left = 1016.0
+offset_top = 1.0
+offset_right = 1150.0
+offset_bottom = 46.0
 text = "Add New Choice
 "
 

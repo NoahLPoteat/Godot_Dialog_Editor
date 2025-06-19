@@ -8,8 +8,8 @@ signal deletion_await
 #not needed as we will save on back but there as a precaution
 @onready var save_button: Button = $SaveButton 
 
-@onready var text_box = load("res://Scenes/BranchingDialogueEditorTool/text_box.tscn")
-@onready var choice_box = load("res://Scenes/BranchingDialogueEditorTool/choice_box.tscn")
+@onready var text_box = load("res://BranchingDialogueEditorTool/text_box.tscn")
+@onready var choice_box = load("res://BranchingDialogueEditorTool/choice_box.tscn")
 
 @onready var text_box_container: VBoxContainer = $TabContainer/TextMenu/TextBoxScrolling/TextboxContainer
 @onready var choice_container: VBoxContainer = $TabContainer/ChoicesMenu/ChoiceScrolling/ChoiceContainer

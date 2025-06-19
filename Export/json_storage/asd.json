@@ -1,0 +1,22 @@
+{
+	"asd": {
+		"asd": {
+			"choice0": [
+				"1",
+				"asd",
+				"none"
+			],
+			"choice1": [
+				"2",
+				"asd",
+				"none"
+			],
+			"choiceNum": 2,
+			"text0": "1",
+			"text1": "2",
+			"text2": "3",
+			"text3": "4",
+			"textNum": 4
+		}
+	}
+}

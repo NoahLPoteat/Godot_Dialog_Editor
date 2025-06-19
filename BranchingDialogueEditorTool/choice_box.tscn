@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://chdbea8mbh8qw"]
 
-[ext_resource type="Script" uid="uid://bvadbb3sh1dy0" path="res://Scenes/BranchingDialogueEditorTool/Scripts/choice_box.gd" id="1_4qt4k"]
+[ext_resource type="Script" uid="uid://bvadbb3sh1dy0" path="res://BranchingDialogueEditorTool/Scripts/choice_box.gd" id="1_4qt4k"]
 
 [node name="ChoiceBox" type="Control"]
 custom_minimum_size = Vector2(0, 100)
@@ -50,9 +50,9 @@ caret_blink = true
 [node name="DestTopic" type="OptionButton" parent="."]
 custom_minimum_size = Vector2(200, 80)
 layout_mode = 0
-offset_left = 630.0
+offset_left = 514.0
 offset_top = 10.0
-offset_right = 880.0
+offset_right = 764.0
 offset_bottom = 90.0
 alignment = 1
 fit_to_longest_item = false
@@ -87,9 +87,9 @@ text = "X"
 [node name="ModifierEdit" type="LineEdit" parent="."]
 custom_minimum_size = Vector2(200, 80)
 layout_mode = 0
-offset_left = 890.0
+offset_left = 774.0
 offset_top = 10.0
-offset_right = 1130.0
+offset_right = 1014.0
 offset_bottom = 90.0
 placeholder_text = "Please Enter a Modifier IE buy"
 alignment = 1
