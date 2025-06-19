@@ -1,0 +1,170 @@
+[gd_scene load_steps=4 format=3 uid="uid://ul6k0rsylgt5"]
+
+[ext_resource type="Script" uid="uid://cfpffgthlgojd" path="res://Scenes/BranchingDialogueEditorTool/dialogue_editor_tool.gd" id="1_cgeth"]
+[ext_resource type="Script" uid="uid://vn6wlbtvwmwf" path="res://Scenes/BranchingDialogueEditorTool/json_page.gd" id="2_2hm0s"]
+[ext_resource type="Script" uid="uid://cekeev2rrqce1" path="res://Scenes/BranchingDialogueEditorTool/entity_page.gd" id="3_ec864"]
+
+[node name="DialogueEditorTool" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cgeth")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.187289, 0.109269, 0.147616, 1)
+
+[node name="JsonPage" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_2hm0s")
+
+[node name="ButtonContainer" type="HBoxContainer" parent="JsonPage"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 222.0
+offset_bottom = 43.0
+
+[node name="CreateJson" type="Button" parent="JsonPage/ButtonContainer"]
+layout_mode = 2
+text = "Create JSON"
+
+[node name="ReloadPage" type="Button" parent="JsonPage/ButtonContainer"]
+layout_mode = 2
+text = "Reload JSONs"
+
+[node name="JsonListLabel" type="RichTextLabel" parent="JsonPage"]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 1280.0
+offset_bottom = 720.0
+bbcode_enabled = true
+autowrap_mode = 2
+
+[node name="NameInputControl" type="Control" parent="JsonPage"]
+visible = false
+anchors_preset = 0
+offset_left = 231.0
+offset_top = 1.0
+offset_right = 271.0
+offset_bottom = 41.0
+
+[node name="JsonNameInput" type="LineEdit" parent="JsonPage/NameInputControl"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -17.0
+offset_right = 435.0
+offset_bottom = 18.0
+grow_vertical = 2
+placeholder_text = "insert json name..."
+max_length = 30
+caret_blink = true
+
+[node name="ConfirmInput" type="Button" parent="JsonPage/NameInputControl"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 3.0
+offset_right = 540.0
+offset_bottom = 38.0
+text = "Confirm?"
+
+[node name="EntityPage" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_ec864")
+
+[node name="ButtonContainer" type="HBoxContainer" parent="EntityPage"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 362.0
+offset_bottom = 43.0
+
+[node name="BackButton" type="Button" parent="EntityPage/ButtonContainer"]
+layout_mode = 2
+text = "Back to JSONs"
+
+[node name="CreateEntity" type="Button" parent="EntityPage/ButtonContainer"]
+layout_mode = 2
+text = "Create new entity"
+
+[node name="EntityListLabel" type="RichTextLabel" parent="EntityPage"]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="NameInputControl" type="Control" parent="EntityPage"]
+visible = false
+anchors_preset = 0
+offset_left = 270.0
+offset_top = 1.0
+offset_right = 310.0
+offset_bottom = 41.0
+
+[node name="EntityIdEdit" type="LineEdit" parent="EntityPage/NameInputControl"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -17.5
+offset_right = 186.0
+offset_bottom = 17.5
+grow_vertical = 2
+placeholder_text = "Enter a 3 digit ID : 000"
+max_length = 3
+caret_blink = true
+secret_character = ""
+
+[node name="ConfirmButton" type="Button" parent="EntityPage/NameInputControl"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 3.0
+offset_right = 268.0
+offset_bottom = 38.0
+text = "Confirm?"
+
+[node name="TopicPage" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonContainer2" type="HBoxContainer" parent="TopicPage"]
+layout_mode = 0
+offset_right = 359.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="TopicPage/ButtonContainer2"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="TopicPage/ButtonContainer2"]
+layout_mode = 2
+
+[connection signal="pressed" from="JsonPage/ButtonContainer/CreateJson" to="JsonPage" method="create_json"]
+[connection signal="pressed" from="JsonPage/ButtonContainer/ReloadPage" to="JsonPage" method="reload_json_list"]
+[connection signal="meta_clicked" from="JsonPage/JsonListLabel" to="JsonPage" method="_on_json_list_label_meta_clicked"]

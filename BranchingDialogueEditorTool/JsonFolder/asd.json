@@ -1,0 +1,84 @@
+{
+	"001": {
+		"FireQuestIntro": {
+			"choice0": [
+				"I shall return soon.",
+				"topic3 - End",
+				"end"
+			],
+			"choiceNum": 1.0,
+			"text0": "If you wish to create fire, you must first gather some kindling. A bit of dry leaves should do great.",
+			"text1": "Next you will need to find a larger source of fuel, try a log or some branches on the forest floor.",
+			"text2": "Return to me when you have found these.",
+			"textNum": 3.0
+		},
+		"feeling-responce": {
+			"choice0": [
+				"That's Great!, Goodbye",
+				"topic3 - End",
+				"end"
+			],
+			"choiceNum": 1.0,
+			"text0": "I'm feeling good",
+			"textNum": 1.0
+		},
+		"test": {
+			"choice0": [
+				"Back to intro",
+				"topic1 - Intro",
+				"none"
+			],
+			"choice1": [
+				"Goodbye.",
+				"topic3 - End",
+				"end"
+			],
+			"choiceNum": 2.0,
+			"textNum": 0.0
+		},
+		"topic1 - Intro": {
+			"choice0": [
+				"none",
+				"topic2 - Greeting",
+				"none"
+			],
+			"choice1": [
+				"GO TO TEST",
+				"test",
+				"none"
+			],
+			"choice2": [
+				"*end conversation*",
+				"topic3 - End",
+				"end"
+			],
+			"choice3": [
+				"example choice 3",
+				"topic3 - End",
+				"none"
+			],
+			"choiceNum": 4.0,
+			"text0": "Hello, this is a new line created using only the tool I created my self! This tool can be used to create branching dialog for any game! Enjoy...\nClick to continue.",
+			"text1": "Hello, this is a test of the branching dialog system.\nNew lines also work!",
+			"text2": "There can be multiple chunks of text before the choices come in.",
+			"text3": "Now that the choices are here, try choosing the greeting.",
+			"textNum": 4.0
+		},
+		"topic2 - Greeting": {
+			"choice0": [
+				"Goodbye.",
+				"topic3 - End",
+				"end"
+			],
+			"choiceNum": 1.0,
+			"text0": "Hello, this is an example greeting.",
+			"text1": "More choices could be added in the future but currently the only one is to end the conversation",
+			"textNum": 2.0
+		},
+		"topic3 - End": {
+			"choiceNum": 0.0,
+			"text0": "This is the end of the conversation, click now to close dialog.",
+			"textNum": 1.0
+		}
+	},
+}

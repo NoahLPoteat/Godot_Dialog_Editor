@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://b527vqgxt12fy"]
+
+[ext_resource type="Script" uid="uid://c057ap51j7hkx" path="res://Scenes/BranchingDialogueEditorTool/Scripts/text_box.gd" id="1_jaaux"]
+
+[node name="TextBox" type="Control"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jaaux")
+
+[node name="DragAndMove" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 60.0
+grow_vertical = 2
+
+[node name="DragButtonCont" type="VBoxContainer" parent="DragAndMove"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="MoveUp" type="Button" parent="DragAndMove/DragButtonCont"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "^"
+
+[node name="SelectIndex" type="OptionButton" parent="DragAndMove/DragButtonCont"]
+layout_mode = 2
+
+[node name="MoveDown" type="Button" parent="DragAndMove/DragButtonCont"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "v"
+
+[node name="TextInput" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 71.0
+offset_top = 10.0
+offset_right = -109.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Please enter the text for your dialog topic..."
+wrap_mode = 1
+caret_blink = true
+
+[node name="DeleteButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = 17.5
+offset_right = -15.0
+offset_bottom = -17.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "X"

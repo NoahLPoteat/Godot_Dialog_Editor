@@ -1,0 +1,402 @@
+[gd_scene load_steps=7 format=3 uid="uid://ul6k0rsylgt5"]
+
+[ext_resource type="Script" uid="uid://cfpffgthlgojd" path="res://BranchingDialogueEditorTool/Scripts/dialogue_editor_tool.gd" id="1_cgeth"]
+[ext_resource type="Script" uid="uid://vn6wlbtvwmwf" path="res://BranchingDialogueEditorTool/Scripts/json_page.gd" id="2_2hm0s"]
+[ext_resource type="Script" uid="uid://cekeev2rrqce1" path="res://BranchingDialogueEditorTool/Scripts/entity_page.gd" id="3_ec864"]
+[ext_resource type="Script" uid="uid://dbw77yk8b6pxg" path="res://BranchingDialogueEditorTool/Scripts/topics_page.gd" id="4_uis7t"]
+[ext_resource type="Script" uid="uid://dsa6ijcgqohbo" path="res://BranchingDialogueEditorTool/Scripts/individual_topic_page.gd" id="5_oou7t"]
+[ext_resource type="PackedScene" uid="uid://chdbea8mbh8qw" path="res://BranchingDialogueEditorTool/choice_box.tscn" id="7_o1jsr"]
+
+[node name="DialogueEditorTool" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cgeth")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.187289, 0.109269, 0.147616, 1)
+
+[node name="JsonPage" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_2hm0s")
+
+[node name="ButtonContainer" type="HBoxContainer" parent="JsonPage"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 222.0
+offset_bottom = 43.0
+
+[node name="CreateJson" type="Button" parent="JsonPage/ButtonContainer"]
+layout_mode = 2
+text = "Create JSON"
+
+[node name="ReloadPage" type="Button" parent="JsonPage/ButtonContainer"]
+layout_mode = 2
+text = "Reload JSONs"
+
+[node name="JsonListLabel" type="RichTextLabel" parent="JsonPage"]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 1280.0
+offset_bottom = 720.0
+bbcode_enabled = true
+autowrap_mode = 2
+
+[node name="NameInputControl" type="Control" parent="JsonPage"]
+visible = false
+anchors_preset = 0
+offset_left = 231.0
+offset_top = 1.0
+offset_right = 271.0
+offset_bottom = 41.0
+
+[node name="JsonNameInput" type="LineEdit" parent="JsonPage/NameInputControl"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -17.0
+offset_right = 435.0
+offset_bottom = 18.0
+grow_vertical = 2
+placeholder_text = "insert json name..."
+max_length = 30
+caret_blink = true
+
+[node name="ConfirmInput" type="Button" parent="JsonPage/NameInputControl"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 3.0
+offset_right = 540.0
+offset_bottom = 38.0
+text = "Confirm?"
+
+[node name="FileDialog" type="FileDialog" parent="JsonPage"]
+title = "Open a Directory"
+initial_position = 1
+size = Vector2i(840, 460)
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+
+[node name="SelectFolder" type="Button" parent="JsonPage"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -180.0
+offset_bottom = 57.0
+grow_horizontal = 0
+text = "Select Folder
+"
+
+[node name="EntityPage" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_ec864")
+
+[node name="ButtonContainer" type="HBoxContainer" parent="EntityPage"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 268.0
+offset_bottom = 43.0
+
+[node name="BackButton" type="Button" parent="EntityPage/ButtonContainer"]
+layout_mode = 2
+text = "Back to JSONs"
+
+[node name="CreateEntity" type="Button" parent="EntityPage/ButtonContainer"]
+layout_mode = 2
+text = "Create new entity"
+
+[node name="EntityListLabel" type="RichTextLabel" parent="EntityPage"]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 1280.0
+offset_bottom = 720.0
+bbcode_enabled = true
+
+[node name="NameInputControl" type="Control" parent="EntityPage"]
+visible = false
+anchors_preset = 0
+offset_left = 270.0
+offset_top = 3.0
+offset_right = 310.0
+offset_bottom = 43.0
+
+[node name="EntityIdEdit" type="LineEdit" parent="EntityPage/NameInputControl"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -17.5
+offset_right = 227.0
+offset_bottom = 17.5
+grow_vertical = 2
+placeholder_text = "Enter an Entity ID"
+caret_blink = true
+
+[node name="ConfirmButton" type="Button" parent="EntityPage/NameInputControl"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 230.0
+offset_top = -17.5
+offset_right = 321.0
+offset_bottom = 17.5
+grow_vertical = 2
+text = "Confirm?"
+
+[node name="TopicsOverview" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_uis7t")
+
+[node name="ButtonContainer2" type="HBoxContainer" parent="TopicsOverview"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 362.0
+offset_bottom = 43.0
+
+[node name="Back" type="Button" parent="TopicsOverview/ButtonContainer2"]
+layout_mode = 2
+text = "Back to Entities"
+
+[node name="CreateTopic" type="Button" parent="TopicsOverview/ButtonContainer2"]
+layout_mode = 2
+text = "Create Topic"
+
+[node name="TopicsOverviewLabel" type="RichTextLabel" parent="TopicsOverview"]
+layout_mode = 0
+offset_top = 54.0
+offset_right = 1280.0
+offset_bottom = 720.0
+bbcode_enabled = true
+
+[node name="NameInputControl" type="Control" parent="TopicsOverview"]
+visible = false
+anchors_preset = 0
+offset_left = 243.0
+offset_top = 4.0
+offset_right = 283.0
+offset_bottom = 44.0
+
+[node name="TopicNameInput" type="LineEdit" parent="TopicsOverview/NameInputControl"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -17.5
+offset_right = 186.0
+offset_bottom = 17.5
+grow_vertical = 2
+placeholder_text = "Enter Topic Name"
+max_length = 20
+caret_blink = true
+secret_character = ""
+
+[node name="ConfirmButton" type="Button" parent="TopicsOverview/NameInputControl"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 3.0
+offset_right = 268.0
+offset_bottom = 38.0
+text = "Confirm?"
+
+[node name="DeleteEntity" type="Button" parent="TopicsOverview"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 0
+offset_left = 1014.0
+offset_top = 3.0
+offset_right = 1129.0
+offset_bottom = 43.0
+text = "Delete Entity?"
+
+[node name="Confirm" type="Control" parent="TopicsOverview"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1133.0
+offset_top = 3.0
+offset_right = 1173.0
+offset_bottom = 43.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopicsOverview/Confirm"]
+layout_mode = 0
+offset_right = 142.0
+offset_bottom = 40.0
+
+[node name="CancelDelete" type="Button" parent="TopicsOverview/Confirm/HBoxContainer"]
+layout_mode = 2
+text = "Cancel"
+
+[node name="ConfirmDelete" type="Button" parent="TopicsOverview/Confirm/HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Confirm?"
+
+[node name="IndividualTopicPage" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+script = ExtResource("5_oou7t")
+
+[node name="Back" type="Button" parent="IndividualTopicPage"]
+layout_mode = 0
+offset_right = 51.0
+offset_bottom = 40.0
+text = "Back"
+
+[node name="SaveButton" type="Button" parent="IndividualTopicPage"]
+layout_mode = 0
+offset_left = 1171.0
+offset_top = 5.0
+offset_right = 1275.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 40
+text = "SAVE"
+
+[node name="TabContainer" type="TabContainer" parent="IndividualTopicPage"]
+layout_mode = 0
+offset_top = 88.0
+offset_right = 1280.0
+offset_bottom = 720.0
+current_tab = 0
+
+[node name="TextMenu" type="Control" parent="IndividualTopicPage/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="AddTextBoxButton" type="Button" parent="IndividualTopicPage/TabContainer/TextMenu"]
+layout_mode = 0
+offset_left = 1151.0
+offset_top = 2.0
+offset_right = 1280.0
+offset_bottom = 47.0
+text = "Add Text Piece
+"
+
+[node name="TextBoxScrolling" type="ScrollContainer" parent="IndividualTopicPage/TabContainer/TextMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextboxContainer" type="VBoxContainer" parent="IndividualTopicPage/TabContainer/TextMenu/TextBoxScrolling"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ChoicesMenu" type="Control" parent="IndividualTopicPage/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="AddChoiceButton" type="Button" parent="IndividualTopicPage/TabContainer/ChoicesMenu"]
+layout_mode = 0
+offset_left = 1144.0
+offset_top = 2.0
+offset_right = 1278.0
+offset_bottom = 47.0
+text = "Add New Choice
+"
+
+[node name="ChoiceScrolling" type="ScrollContainer" parent="IndividualTopicPage/TabContainer/ChoicesMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChoiceContainer" type="VBoxContainer" parent="IndividualTopicPage/TabContainer/ChoicesMenu/ChoiceScrolling"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ChoiceBox" parent="IndividualTopicPage/TabContainer/ChoicesMenu/ChoiceScrolling/ChoiceContainer" instance=ExtResource("7_o1jsr")]
+layout_mode = 2
+
+[node name="DeleteTopic" type="Button" parent="IndividualTopicPage"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 0
+offset_left = 60.0
+offset_right = 68.0
+offset_bottom = 8.0
+text = "Delete Topic?"
+
+[node name="Confirm" type="Control" parent="IndividualTopicPage"]
+visible = false
+anchors_preset = 0
+offset_left = 182.0
+offset_right = 222.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="IndividualTopicPage/Confirm"]
+layout_mode = 0
+offset_right = 142.0
+offset_bottom = 40.0
+
+[node name="CancelDelete" type="Button" parent="IndividualTopicPage/Confirm/HBoxContainer"]
+layout_mode = 2
+text = "Cancel"
+
+[node name="ConfirmDelete" type="Button" parent="IndividualTopicPage/Confirm/HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Confirm?"
+
+[connection signal="pressed" from="JsonPage/ButtonContainer/CreateJson" to="JsonPage" method="create_json"]
+[connection signal="pressed" from="JsonPage/ButtonContainer/ReloadPage" to="JsonPage" method="reload_json_list"]
+[connection signal="meta_clicked" from="JsonPage/JsonListLabel" to="JsonPage" method="_on_json_list_label_meta_clicked"]
+[connection signal="canceled" from="JsonPage/FileDialog" to="." method="_on_file_dialog_canceled"]
+[connection signal="canceled" from="JsonPage/FileDialog" to="JsonPage" method="_on_file_dialog_canceled"]
+[connection signal="dir_selected" from="JsonPage/FileDialog" to="JsonPage" method="_on_file_dialog_dir_selected"]
+[connection signal="pressed" from="JsonPage/SelectFolder" to="JsonPage" method="_on_select_folder_pressed"]
+[connection signal="pressed" from="EntityPage/ButtonContainer/BackButton" to="EntityPage" method="_on_back_button_pressed"]
+[connection signal="pressed" from="EntityPage/ButtonContainer/CreateEntity" to="EntityPage" method="_on_create_entity_pressed"]
+[connection signal="meta_clicked" from="EntityPage/EntityListLabel" to="EntityPage" method="_on_entity_list_label_meta_clicked"]
+[connection signal="pressed" from="TopicsOverview/ButtonContainer2/Back" to="TopicsOverview" method="_on_back_pressed"]
+[connection signal="pressed" from="TopicsOverview/ButtonContainer2/CreateTopic" to="TopicsOverview" method="_on_create_topic_pressed"]
+[connection signal="meta_clicked" from="TopicsOverview/TopicsOverviewLabel" to="TopicsOverview" method="_on_topics_overview_label_meta_clicked"]
+[connection signal="pressed" from="TopicsOverview/DeleteEntity" to="TopicsOverview" method="_on_delete_entity_pressed"]
+[connection signal="pressed" from="TopicsOverview/Confirm/HBoxContainer/CancelDelete" to="TopicsOverview" method="_on_cancel_delete_pressed"]
+[connection signal="pressed" from="TopicsOverview/Confirm/HBoxContainer/ConfirmDelete" to="TopicsOverview" method="_on_confirm_delete_pressed"]
+[connection signal="pressed" from="IndividualTopicPage/Back" to="IndividualTopicPage" method="_on_back_pressed"]
+[connection signal="pressed" from="IndividualTopicPage/SaveButton" to="IndividualTopicPage" method="_on_save_button_pressed"]
+[connection signal="pressed" from="IndividualTopicPage/TabContainer/TextMenu/AddTextBoxButton" to="IndividualTopicPage" method="_on_add_text_box_button_pressed"]
+[connection signal="pressed" from="IndividualTopicPage/TabContainer/ChoicesMenu/AddChoiceButton" to="IndividualTopicPage" method="_on_add_choice_button_pressed"]
+[connection signal="pressed" from="IndividualTopicPage/DeleteTopic" to="IndividualTopicPage" method="_on_delete_topic_pressed"]
+[connection signal="pressed" from="IndividualTopicPage/Confirm/HBoxContainer/CancelDelete" to="IndividualTopicPage" method="_on_cancel_delete_pressed"]
+[connection signal="pressed" from="IndividualTopicPage/Confirm/HBoxContainer/ConfirmDelete" to="IndividualTopicPage" method="_on_confirm_delete_pressed"]
